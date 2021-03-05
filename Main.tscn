@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Camera.gd" type="Script" id=1]
 [ext_resource path="res://Canon.tscn" type="PackedScene" id=2]
-[ext_resource path="res://winter_grass_snip.png" type="Texture" id=3]
+[ext_resource path="res://Winter grass.png" type="Texture" id=3]
 [ext_resource path="res://MouseControl.gd" type="Script" id=4]
 
 [sub_resource type="CubeMesh" id=1]
@@ -32,8 +32,8 @@ script = ExtResource( 1 )
 [node name="Controls" type="Spatial" parent="Camera"]
 script = ExtResource( 4 )
 
-[node name="Unit" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.93206, 9.3065, -4.60926 )
+[node name="TankUnit" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.607321, 9.3065, -4.60926 )
 
 [node name="Light1" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.0362425, 0.999343, 0, -0.999343, 0.0362425, -3.56674, 24.3501, 33.7963 )

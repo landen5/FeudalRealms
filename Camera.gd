@@ -56,7 +56,6 @@ func _input(event):
 func _process(delta):
 	_update_mouselook()
 	_update_movement(delta)
-	print("test")
 # Updates camera movement
 func _update_movement(delta):
 	# Computes desired direction from key states
