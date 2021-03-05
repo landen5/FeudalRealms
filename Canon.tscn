@@ -1,27 +1,20 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
-[sub_resource type="CubeMesh" id=1]
+[ext_resource path="res://ballista/uploads_files_2229776_Ballista_Anim.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://ballista/BallistaTexture.png" type="Texture" id=2]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 1.66785, 0.546352, 2.68283 )
 
 [sub_resource type="SpatialMaterial" id=2]
-albedo_color = Color( 0.133333, 0.133333, 0.133333, 1 )
-
-[sub_resource type="CubeMesh" id=3]
-
-[sub_resource type="SpatialMaterial" id=4]
-albedo_color = Color( 1, 0, 0, 1 )
-
-[sub_resource type="BoxShape" id=5]
+albedo_texture = ExtResource( 2 )
 
 [node name="Canon" type="RigidBody"]
 
-[node name="MeshInstance" type="MeshInstance" parent="."]
-mesh = SubResource( 1 )
-material/0 = SubResource( 2 )
-
-[node name="MeshInstance2" type="MeshInstance" parent="MeshInstance"]
-transform = Transform( -0.527508, -0.214554, 0, 0.396655, -0.285334, 0, 0, 0, 0.522, -0.785354, 0.81488, 0 )
-mesh = SubResource( 3 )
-material/0 = SubResource( 4 )
-
 [node name="CollisionShape" type="CollisionShape" parent="."]
-shape = SubResource( 5 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.28868 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance2" type="MeshInstance" parent="."]
+mesh = ExtResource( 1 )
+material/0 = SubResource( 2 )

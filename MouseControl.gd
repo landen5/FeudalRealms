@@ -1,7 +1,7 @@
 extends Spatial
 
 onready var cam = get_tree().get_root().get_node("Spatial/Camera")
-onready var tank = get_tree().get_root().get_node("Spatial/TankUnit")
+onready var tank = get_tree().get_root().get_node("Spatial/Ballista")
 
 var unit_pos = Vector3()
 var target_pos = Vector3()
@@ -19,15 +19,15 @@ func _process(delta):
 	var hit = space_state.intersect_ray(from, to)
 	if hit.size() != 0:
 		print(hit.collider.name)
-		if(hit.collider.name == "TankUnit"):
+		if(hit.collider.name == "Ballista"):
 			if(Input.is_action_pressed("mouse_left")):
 				unit_pos = tank.global_transform.origin
 				#print(unit_pos)
-	if(Input.is_action_pressed("mouse_right")):
-		if(hit.size() != 0):
-			target_pos = hit.position
+	#if(Input.is_action_pressed("mouse_right")):
+		#if(hit.size() != 0):
+			#target_pos = hit.position
 			#print(hit.position)
-			begin_move = true
+			#begin_move = true
 	
-	while(unit_pos.distance_to(target_pos) >= 5):
-		tank.apply_impulse(dir, unit_pos)
+	#while(unit_pos.distance_to(target_pos) >= 5):
+		#tank.apply_impulse(dir, unit_pos)

@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/uploads_files_2229776_Ballista_Anim.obj-9d0f4bb58c4ee414b66149ff09365864.mesh"
+
+[deps]
+
+files=[ "res://.import/uploads_files_2229776_Ballista_Anim.obj-9d0f4bb58c4ee414b66149ff09365864.mesh" ]
+
+source_file="res://ballista/uploads_files_2229776_Ballista_Anim.obj"
+dest_files=[ "res://.import/uploads_files_2229776_Ballista_Anim.obj-9d0f4bb58c4ee414b66149ff09365864.mesh", "res://.import/uploads_files_2229776_Ballista_Anim.obj-9d0f4bb58c4ee414b66149ff09365864.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 0.2, 0.2, 0.2 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true
