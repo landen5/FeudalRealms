@@ -29,10 +29,10 @@ shape = SubResource( 3 )
 transform = Transform( 1, 0, 0, 0, 0.958248, 0.285939, 0, -0.285939, 0.958248, 0, 10.7868, 18.7904 )
 script = ExtResource( 1 )
 
-[node name="Spatial" type="Spatial" parent="Camera"]
+[node name="Controls" type="Spatial" parent="Camera"]
 script = ExtResource( 4 )
 
-[node name="Canon" parent="." instance=ExtResource( 2 )]
+[node name="Landen was here" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.93206, 7.40104, -4.60926 )
 
 [node name="Light1" type="DirectionalLight" parent="."]
