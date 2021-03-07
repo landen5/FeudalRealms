@@ -12,7 +12,7 @@ var fullscreen_toggle = true
 
 func _process(delta):
 	toggle_fullscreen(delta)
-	
+
 	var ray_origin = cam.project_ray_origin(get_viewport().get_mouse_position())
 	var ray_direction = cam.project_ray_normal(get_viewport().get_mouse_position())
 	
@@ -24,17 +24,14 @@ func _process(delta):
 		print(hit.collider.name)
 		if(hit.collider.name == "Ballista"):
 			if(Input.is_action_pressed("mouse_left")):
-				unit_pos = tank.global_transform.origin
-				#print(unit_pos)
-	#if(Input.is_action_pressed("mouse_right")):
-		#if(hit.size() != 0):
-			#target_pos = hit.position
-			#print(hit.position)
-			#begin_move = true
-	
-	#while(unit_pos.distance_to(target_pos) >= 5):
-		#tank.apply_impulse(dir, unit_pos)
-		
+				print("Clicked left mouse btn")
+
+func _physics_process(delta):
+	if(Input.is_action_pressed("Forward")):
+		tank.apply_impulse(Vector3(0, 0, 0), Vector3.FORWARD * 5 * delta)
+	if(Input.is_action_pressed("Back")):
+		tank.apply_impulse(Vector3(0, 0, 0), Vector3.BACK * 5 * delta)
+				
 func toggle_fullscreen(delta):
 	if(Input.is_action_just_pressed("F")):
 		fullscreen_toggle = !fullscreen_toggle
