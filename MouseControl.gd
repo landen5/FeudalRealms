@@ -8,7 +8,10 @@ var target_pos = Vector3()
 var dir = Vector3()
 var begin_move = false
 
+var fullscreen_toggle = true
+
 func _process(delta):
+	toggle_fullscreen(delta)
 	
 	var ray_origin = cam.project_ray_origin(get_viewport().get_mouse_position())
 	var ray_direction = cam.project_ray_normal(get_viewport().get_mouse_position())
@@ -31,3 +34,12 @@ func _process(delta):
 	
 	#while(unit_pos.distance_to(target_pos) >= 5):
 		#tank.apply_impulse(dir, unit_pos)
+		
+func toggle_fullscreen(delta):
+	if(Input.is_action_just_pressed("F")):
+		fullscreen_toggle = !fullscreen_toggle
+		print(fullscreen_toggle)
+		if(fullscreen_toggle == true):
+			OS.window_fullscreen = true
+		else:
+			OS.window_fullscreen = false
