@@ -12,7 +12,7 @@ extents = Vector3( 1.66785, 0.546352, 2.68283 )
 [sub_resource type="SpatialMaterial" id=3]
 albedo_texture = ExtResource( 2 )
 
-[node name="Canon" type="RigidBody"]
+[node name="Ballista" type="RigidBody"]
 physics_material_override = SubResource( 1 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
