@@ -1,7 +1,6 @@
 extends Spatial
 
 onready var cam = get_tree().get_root().get_node("Base/Camera")
-onready var tank = get_tree().get_root().get_node("Base/Ballista")
 onready var unit = null
 
 var unit_pos = Vector3()
@@ -25,15 +24,10 @@ func _process(delta):
 		if hit.size() != 0:
 			var selected_unit = hit.collider.name
 			print(selected_unit)
-			unit = get_tree().get_root().get_node("Base/" + selected_unit)
+			var temp_selection = get_tree().get_root().get_node("Base/" + selected_unit)
+			if(temp_selection.get_class() == "RigidBody"):
+				unit = get_tree().get_root().get_node("Base/" + selected_unit)
 			print(unit)
-			
-
-func _physics_process(delta):
-	if(Input.is_action_pressed("Forward")):
-		unit.apply_impulse(Vector3(0, 0, 0), Vector3.FORWARD * 5 * delta)
-	if(Input.is_action_pressed("Back")):
-		unit.apply_impulse(Vector3(0, 0, 0), Vector3.BACK * 5 * delta)
 				
 func toggle_fullscreen(delta):
 	if(Input.is_action_just_pressed("F")):

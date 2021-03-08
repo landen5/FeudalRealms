@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://ballista/uploads_files_2229776_Ballista_Anim.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://ballista/BallistaTexture.png" type="Texture" id=2]
+[ext_resource path="res://Ballista.gd" type="Script" id=3]
 
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 0.3
@@ -14,6 +15,7 @@ albedo_texture = ExtResource( 2 )
 
 [node name="Ballista" type="RigidBody"]
 physics_material_override = SubResource( 1 )
+script = ExtResource( 3 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.28868 )
