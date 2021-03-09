@@ -23,5 +23,5 @@ func simple_move(delta):
 	var dir = Vector3()
 	dir = (move_destination - unit.global_transform.origin).normalized()
 	if(move_destination.distance_to(unit.global_transform.origin) > 3):
-		unit.apply_impulse(Vector3(0, 0, 0), dir * 10 * delta)
+		unit.apply_impulse(Vector3(0, 0, 0), dir * speed * delta)
 
