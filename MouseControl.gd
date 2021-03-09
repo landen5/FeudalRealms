@@ -6,7 +6,7 @@ onready var unit = null
 
 var move_destination = Vector3()
 
-var fullscreen_toggle = true
+var fullscreen_toggle = false
 
 func _process(delta):
 	toggle_fullscreen(delta)

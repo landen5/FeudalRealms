@@ -17,7 +17,6 @@ func _physics_process(delta):
 	move_destination = get_tree().get_root().get_node("Base/Camera/Controls").move_destination
 	#if(unit != null && Input.is_action_pressed("middle_mouse")):
 		#simple_move(delta)
-	
 
 	while(num < path.size()):
 		num += 1
@@ -29,8 +28,15 @@ func _physics_process(delta):
 		if(move_vec.length() < 0.2):
 			path_ind += 1
 		else:
-			unit.apply_impulse(Vector3(0, 0, 0), move_vec.normalized() * speed * delta)
-
+			#unit.apply_impulse(Vector3(0, 0, 0), move_vec.normalized() * speed * delta)
+			unit.linear_velocity = move_vec.normalized() * speed * delta
+			print(unit.linear_velocity)
+	if(unit != null):
+		if(unit.global_transform.origin.distance_to(move_destination) < 2):
+			print("arrived")
+			unit.linear_velocity = Vector3(0, 0, 0)
+			pass
+			
 func move_to(target_pos):
 	path = nav.get_simple_path(global_transform.origin, target_pos)
 	path_ind = 0
