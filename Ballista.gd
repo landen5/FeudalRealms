@@ -30,7 +30,6 @@ func _physics_process(delta):
 			path_ind += 1
 		else:
 			unit.apply_impulse(Vector3(0, 0, 0), move_vec.normalized() * speed * delta)
-			#unit.global_transform.origin = unit.global_transform.origin.move_toward(path[path_ind], delta * speed)
 
 func move_to(target_pos):
 	path = nav.get_simple_path(global_transform.origin, target_pos)
