@@ -35,8 +35,6 @@ func _process(delta):
 			MarkerInstance = DebugMarker.instance()
 			get_tree().get_root().add_child(MarkerInstance)
 			MarkerInstance.global_transform.origin = hit.position
-			get_tree().call_group("Unit", "move_to", hit.position)
-			
 	if(MarkerInstance != null):
 		if(MarkerInstance.global_transform.origin.distance_to(unit.global_transform.origin) < 5):
 			MarkerInstance.queue_free()
