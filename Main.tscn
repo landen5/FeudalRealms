@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Camera.gd" type="Script" id=1]
 [ext_resource path="res://Ballista.tscn" type="PackedScene" id=2]
@@ -6,25 +6,24 @@
 [ext_resource path="res://MouseControl.gd" type="Script" id=4]
 [ext_resource path="res://default_env.tres" type="Environment" id=5]
 
-[sub_resource type="CubeMesh" id=1]
+[sub_resource type="NavigationMesh" id=1]
+vertices = PoolVector3Array( 29, 1.4, -22, 29, 1.4, -29, 21, 1.4, -29, 21, 1.4, 29, 29, 1.4, 29, 29, 1.4, 21, -22, 1.4, -29, -29, 1.4, -29, -29, 1.4, -19, 0, 1.4, 17, 0, 1.4, 29, 7, 1.4, 29, 4, 1.4, 15, -29, 1.4, 12, -3, 1.4, 12, -2, 1.4, 10, -29, 1.4, 1, 29, 1.4, -15, 29, 1.4, -22, 21, 1.4, -29, 14, 1.4, -29, 14, 1.4, 29, 21, 1.4, 29, 29, 1.4, 21, 29, 1.4, 14, 4, 1.4, 15, 7, 1.4, 29, 14, 1.4, 29, 29, 1.4, 14, 29, 1.4, 7, 4, 1.4, 11, -15, 1.4, -29, -22, 1.4, -29, -29, 1.4, -19, 4, 1.4, 11, 29, 1.4, 7, 29, 1.4, 0, -8, 1.4, -29, -29, 1.4, -19, -29, 1.4, -9, 0, 1.4, -29, 29, 1.4, -8, 7, 1.4, -29, 0, 1.4, -29, -29, 1.4, -9, -2, 1.4, 10, 4, 1.4, 11, -8, 1.4, -29, -15, 1.4, -29, -29, 1.4, -19, -29, 1.4, -9, -29, 1.4, 1, -2, 1.4, 10, 4, 1.4, 11, 29, 1.4, 0, 29, 1.4, -8, 29, 1.4, -8, 29, 1.4, -15, 14, 1.4, -29, 7, 1.4, -29, -29, 1.4, 20, -29, 1.4, 29, -22, 1.4, 29, 0, 1.4, 29, 0, 1.4, 17, -3, 1.4, 16, -8, 1.4, 29, -15, 1.4, 29, -8, 1.4, 29, -3, 1.4, 16, -3, 1.4, 12, -29, 1.4, 12, -29, 1.4, 20, -29, 1.4, 20, -22, 1.4, 29, -15, 1.4, 29 )
+polygons = [ PoolIntArray( 2, 1, 0 ), PoolIntArray( 5, 4, 3 ), PoolIntArray( 8, 7, 6 ), PoolIntArray( 12, 11, 9 ), PoolIntArray( 9, 11, 10 ), PoolIntArray( 16, 15, 13 ), PoolIntArray( 13, 15, 14 ), PoolIntArray( 20, 19, 17 ), PoolIntArray( 17, 19, 18 ), PoolIntArray( 24, 23, 21 ), PoolIntArray( 21, 23, 22 ), PoolIntArray( 30, 29, 25 ), PoolIntArray( 25, 29, 28 ), PoolIntArray( 25, 28, 27 ), PoolIntArray( 25, 27, 26 ), PoolIntArray( 33, 32, 31 ), PoolIntArray( 36, 35, 34 ), PoolIntArray( 40, 39, 37 ), PoolIntArray( 37, 39, 38 ), PoolIntArray( 46, 45, 41 ), PoolIntArray( 41, 45, 42 ), PoolIntArray( 42, 45, 43 ), PoolIntArray( 43, 45, 44 ), PoolIntArray( 49, 48, 47 ), PoolIntArray( 52, 51, 50 ), PoolIntArray( 55, 54, 53 ), PoolIntArray( 59, 58, 56 ), PoolIntArray( 56, 58, 57 ), PoolIntArray( 62, 61, 60 ), PoolIntArray( 66, 65, 63 ), PoolIntArray( 63, 65, 64 ), PoolIntArray( 72, 71, 67 ), PoolIntArray( 67, 71, 68 ), PoolIntArray( 68, 71, 69 ), PoolIntArray( 69, 71, 70 ), PoolIntArray( 75, 74, 73 ) ]
+cell/size = 1.0
 
-[sub_resource type="SpatialMaterial" id=2]
+[sub_resource type="CubeMesh" id=2]
+
+[sub_resource type="SpatialMaterial" id=3]
 albedo_color = Color( 0.34902, 0.34902, 0.34902, 1 )
 albedo_texture = ExtResource( 3 )
 
-[sub_resource type="BoxShape" id=3]
+[sub_resource type="BoxShape" id=4]
+
+[sub_resource type="CubeMesh" id=5]
+
+[sub_resource type="BoxShape" id=6]
 
 [node name="Base" type="Spatial"]
-
-[node name="Ground" type="StaticBody" parent="."]
-transform = Transform( 30, 0, 0, 0, 1, 0, 0, 0, 30, 0, 0, 0 )
-
-[node name="MeshInstance" type="MeshInstance" parent="Ground"]
-mesh = SubResource( 1 )
-material/0 = SubResource( 2 )
-
-[node name="CollisionShape" type="CollisionShape" parent="Ground"]
-shape = SubResource( 3 )
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.958248, 0.285939, 0, -0.285939, 0.958248, 0, 10.7868, 18.7904 )
@@ -41,3 +40,28 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.607321, 9.3065, -4.60926 )
 transform = Transform( 1, 0, 0, 0, 0.0362425, 0.999343, 0, -0.999343, 0.0362425, -3.56674, 24.3501, 33.7963 )
 light_energy = 3.42
 shadow_enabled = true
+
+[node name="Navigation" type="Navigation" parent="."]
+
+[node name="NavigationMeshInstance" type="NavigationMeshInstance" parent="Navigation"]
+navmesh = SubResource( 1 )
+
+[node name="Ground" type="StaticBody" parent="Navigation/NavigationMeshInstance"]
+transform = Transform( 30, 0, 0, 0, 1, 0, 0, 0, 30, 0, 0, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Ground"]
+mesh = SubResource( 2 )
+material/0 = SubResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/Ground"]
+shape = SubResource( 4 )
+
+[node name="Area" type="StaticBody" parent="Navigation/NavigationMeshInstance"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 3, 13 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Area"]
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/Area"]
+shape = SubResource( 6 )
