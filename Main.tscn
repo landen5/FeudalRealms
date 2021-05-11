@@ -1,10 +1,21 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Camera.gd" type="Script" id=1]
 [ext_resource path="res://Ballista.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Winter grass.png" type="Texture" id=3]
 [ext_resource path="res://MouseControl.gd" type="Script" id=4]
 [ext_resource path="res://default_env.tres" type="Environment" id=5]
+[ext_resource path="res://Castle.tscn" type="PackedScene" id=6]
+[ext_resource path="res://addons/zylann.hterrain/tools/icons/icon_detail_layer_node.svg" type="Texture" id=7]
+[ext_resource path="res://slot0_normal_roughness.packed_tex" type="Texture" id=8]
+[ext_resource path="res://pngkit_redwood-tree-png_1650081.png" type="Texture" id=9]
+[ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=10]
+[ext_resource path="res://addons/zylann.hterrain/hterrain_detail_layer.gd" type="Script" id=11]
+[ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=12]
+[ext_resource path="res://addons/zylann.hterrain/models/grass_quad_x2.obj" type="ArrayMesh" id=13]
+[ext_resource path="res://terrain1data/data.hterrain" type="Resource" id=14]
+[ext_resource path="res://grass_blades.png" type="Texture" id=15]
+[ext_resource path="res://addons/zylann.hterrain/models/grass_quad.obj" type="ArrayMesh" id=16]
 
 [sub_resource type="NavigationMesh" id=1]
 vertices = PoolVector3Array( 0, 1.4, 26, 0, 1.4, 20, -3, 1.4, 20, -7, 1.4, 26, 26, 1.4, -16, 13, 1.4, -26, 6, 1.4, -26, -20, 1.4, -26, -26, 1.4, -26, -26, 1.4, -20, -7, 1.4, 26, -3, 1.4, 20, -6, 1.4, 17, -13, 1.4, 26, -26, 1.4, 19, -26, 1.4, 26, -20, 1.4, 26, -26, 1.4, 0, -26, 1.4, 6, -6, 1.4, 10, 26, 1.4, -16, 26, 1.4, -26, 19, 1.4, -26, -13, 1.4, -26, -20, 1.4, -26, -26, 1.4, -20, -26, 1.4, -13, -26, 1.4, 13, -26, 1.4, 19, -20, 1.4, 26, 26, 1.4, -16, 19, 1.4, -26, 13, 1.4, -26, -20, 1.4, 26, -13, 1.4, 26, -6, 1.4, 17, -6, 1.4, 10, -26, 1.4, 6, -26, 1.4, 13, -7, 1.4, -26, -13, 1.4, -26, -26, 1.4, -13, -26, 1.4, -7, 7, 1.4, 10, 7, 1.4, 15, 26, 1.4, 15, 7, 1.4, 10, 26, 1.4, 15, 26, 1.4, 4, 4, 1.4, 7, -26, 1.4, 0, -6, 1.4, 10, -3, 1.4, 7, -26, 1.4, -7, 0, 1.4, -26, -7, 1.4, -26, -26, 1.4, -7, -3, 1.4, 7, 26, 1.4, -6, 26, 1.4, -16, 26, 1.4, -16, 6, 1.4, -26, 0, 1.4, -26, 4, 1.4, 7, 26, 1.4, 4, 26, 1.4, -6, -3, 1.4, 7, 3, 1.4, 20, 0, 1.4, 20, 0, 1.4, 26, 6, 1.4, 26, 19, 1.4, 26, 26, 1.4, 26, 26, 1.4, 15, 7, 1.4, 15, 3, 1.4, 20, 6, 1.4, 26, 13, 1.4, 26, 19, 1.4, 26, 26, 1.4, 15, 7, 1.4, 15, 13, 1.4, 26 )
@@ -24,11 +35,17 @@ albedo_texture = ExtResource( 3 )
 
 [sub_resource type="BoxShape" id=6]
 
+[sub_resource type="Resource" id=7]
+script = ExtResource( 12 )
+mode = 0
+textures = [ [ ExtResource( 3 ) ], [ ExtResource( 8 ) ] ]
+
 [node name="Base" type="Spatial"]
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.958248, 0.285939, 0, -0.285939, 0.958248, 0, 10.7868, 18.7904 )
 environment = ExtResource( 5 )
+far = 1000.0
 script = ExtResource( 1 )
 
 [node name="Controls" type="Spatial" parent="Camera"]
@@ -38,11 +55,12 @@ script = ExtResource( 4 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.607321, 9.3065, -4.60926 )
 
 [node name="Light1" type="DirectionalLight" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.0362425, 0.999343, 0, -0.999343, 0.0362425, -3.56674, 24.3501, 33.7963 )
-light_energy = 3.42
+transform = Transform( 1, 0, 0, 0, 0.719485, 0.694508, 0, -0.694508, 0.719485, -3.56674, 24.3501, 33.7963 )
+light_energy = 1.18
 shadow_enabled = true
 
 [node name="Navigation" type="Navigation" parent="."]
+visible = false
 
 [node name="NavigationMeshInstance" type="NavigationMeshInstance" parent="Navigation"]
 navmesh = SubResource( 1 )
@@ -66,3 +84,49 @@ material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/Cube"]
 shape = SubResource( 6 )
+
+[node name="HTerrain" type="Spatial" parent="."]
+script = ExtResource( 10 )
+ambient_wind = 0.049
+_terrain_data = ExtResource( 14 )
+chunk_size = 32
+collision_enabled = true
+collision_layer = 1
+collision_mask = 1
+shader_type = "Classic4Lite"
+custom_shader = null
+custom_globalmap_shader = null
+texture_set = SubResource( 7 )
+shader_params/u_ground_uv_scale = 20
+shader_params/u_depth_blending = true
+shader_params/u_triplanar = false
+shader_params/u_tile_reduction = Plane( 0, 0, 0, 0 )
+
+[node name="HTerrainDetailLayer" type="Spatial" parent="HTerrain"]
+script = ExtResource( 11 )
+__meta__ = {
+"_editor_icon": ExtResource( 7 )
+}
+texture = ExtResource( 9 )
+view_distance = 500.0
+instance_mesh = ExtResource( 13 )
+shader_params/u_globalmap_tint_bottom = null
+shader_params/u_globalmap_tint_top = null
+shader_params/u_bottom_ao = null
+shader_params/u_instance_scale = Vector3( 1, 1, 1 )
+
+[node name="HTerrainDetailLayer2" type="Spatial" parent="HTerrain"]
+script = ExtResource( 11 )
+__meta__ = {
+"_editor_icon": ExtResource( 7 )
+}
+layer_index = 1
+texture = ExtResource( 15 )
+instance_mesh = ExtResource( 16 )
+shader_params/u_globalmap_tint_bottom = null
+shader_params/u_globalmap_tint_top = null
+shader_params/u_bottom_ao = null
+shader_params/u_instance_scale = Vector3( 1, 1, 1 )
+
+[node name="uploads_files_783939_DL" parent="." instance=ExtResource( 6 )]
+transform = Transform( -12.9406, 0, -15.2493, 0, 20, 0, 15.2493, 0, -12.9406, 224.676, 6.86566, 259.385 )
