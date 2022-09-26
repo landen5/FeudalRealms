@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://cj5u4i053irty"]
+
+[sub_resource type="GDScript" id="GDScript_47ref"]
+script/source = "extends Camera2D
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	var move_vector = Vector2()
+	var mouse_pos = get_viewport().get_mouse_position()
+	
+	#pan
+	if Input.is_action_pressed(\"up\"):
+		move_vector.y -= 1;
+	if Input.is_action_pressed(\"down\"):
+		move_vector.y += 1;
+	if Input.is_action_pressed(\"left\"):
+		move_vector.x -= 1;
+	if Input.is_action_pressed(\"right\"):
+		move_vector.x += 1;
+		
+	#zoom
+	if Input.is_action_just_released(\"wheel_down\") && zoom.x > 0.5:
+		zoom.x -= .05;
+		zoom.y -= .05;
+	if Input.is_action_just_released(\"wheel_up\") && zoom.x < 1.5:
+		zoom.x += .05;
+		zoom.y += .05;
+		
+	position += move_vector.normalized() * delta * 300
+	print(zoom.x)
+"
+
+[node name="Player" type="Camera2D"]
+script = SubResource("GDScript_47ref")
