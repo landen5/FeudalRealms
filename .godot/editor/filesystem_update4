@@ -1,2 +1,5 @@
 res://Main.tscn
 res://player.tscn
+res://settlement.tscn
+res://settlement.gd
+res://Game.tscn

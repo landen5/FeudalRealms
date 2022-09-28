@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://cryufy5apy5tf"]
+[gd_scene load_steps=3 format=3 uid="uid://cryufy5apy5tf"]
+
+[ext_resource type="Script" path="res://settlement.gd" id="1_kmkm8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yhqmx"]
 
 [node name="Settlement" type="Node2D"]
+script = ExtResource("1_kmkm8")
 
 [node name="Area2d" type="Area2D" parent="."]
 
