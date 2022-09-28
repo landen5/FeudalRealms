@@ -12,6 +12,20 @@ texture = ExtResource("1_h7jps")
 [node name="Player" parent="." instance=ExtResource("2_adg2c")]
 current = true
 
+[node name="Control" type="Control" parent="Player"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Player/Control"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -319.0
+offset_right = 48.0
+offset_bottom = -293.0
+text = "Name"
+
 [node name="Settlement1" parent="." instance=ExtResource("3_iv5kf")]
 position = Vector2(-349, -390)
 scale = Vector2(8, 8)
