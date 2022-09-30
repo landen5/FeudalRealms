@@ -32,4 +32,5 @@ func _process(delta):
 "
 
 [node name="Player" type="Camera2D"]
+current = true
 script = SubResource("GDScript_47ref")
