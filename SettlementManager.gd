@@ -1,16 +1,19 @@
 extends Node
 
-
-func _ready():
-	#hardcoded for testing - replace with procedural gen in the future
-	var set1 = $Settlement1
-	var set2 = $Settlement2
-	var set3 = $Settlement3
+#hardcoded for testing - replace with procedural gen in the future
+var set1
+var set2
+var set3
 	
+func _ready():
+	set1 = $Settlement1
+	set2 = $Settlement2
+	set3 = $Settlement3
+
 	#set titles
 	set1.title = "Settlement1"
 	set2.title = "Settlement2"
-	set2.title = "Settlement3"
+	set3.title = "Settlement3"
 
 	#set id - might be redundant if nodes already have id built in, but just in case
 	set1.id = set1.get_instance_id()
@@ -26,3 +29,10 @@ func _ready():
 	set1.population = 20
 	set2.population = 50
 	set3.population = 10
+	
+
+func update_settlements():
+	set1.update()
+	set2.update()
+	set3.update()
+	

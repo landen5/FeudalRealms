@@ -1,11 +1,11 @@
 0b7126e0c6e86d3ec295a72f5aa6e0bd
-::res://::1664513282
+::res://::1664648365
 clouds.png::CompressedTexture2D::1363290922479589562::1664424280::1664424453::1::::<><>::
-Game.tscn::PackedScene::6253252280896904650::1664513263::0::1::::<><>::uid://drwmbvj1qcmdu<>uid://cj5u4i053irty<>res://SettlementManager.gd<>uid://cryufy5apy5tf<>uid://tong440n0sle
+Game.tscn::PackedScene::6253252280896904650::1664513305::0::1::::<><>::uid://drwmbvj1qcmdu<>uid://cj5u4i053irty<>res://SettlementManager.gd<>uid://cryufy5apy5tf<>uid://tong440n0sle
 icon.png::CompressedTexture2D::774799794885764714::1664148819::1664148930::1::::<><>::
 player.gd::GDScript::-1::1664155805::0::1::::<>Camera2D<>::
-player.tscn::PackedScene::5467738880836584546::1664513263::0::1::::<><>::
-README.md::TextFile::-1::1664148819::0::1::::<><>::
+player.tscn::PackedScene::5467738880836584546::1664513368::0::1::::<><>::
+README.md::TextFile::-1::1664513399::0::1::::<><>::
 settlement.gd::GDScript::-1::1664511925::0::1::::<>Node2D<>::
 settlement.tscn::PackedScene::6016821351080600627::1664513241::0::1::::<><>::res://settlement.gd
 SettlementManager.gd::GDScript::-1::1664512731::0::1::::<>Node<>::

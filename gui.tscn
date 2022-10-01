@@ -1,0 +1,53 @@
+[gd_scene load_steps=2 format=3 uid="uid://c53phsmy6v37r"]
+
+[ext_resource type="Script" path="res://gui.gd" id="1_nbgrg"]
+
+[node name="GUI" type="CanvasLayer"]
+script = ExtResource("1_nbgrg")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+offset_left = 516.0
+offset_right = 636.0
+offset_bottom = 648.0
+size_flags_horizontal = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+offset_right = 120.0
+offset_bottom = 31.0
+size_flags_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+offset_right = 120.0
+offset_bottom = 31.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer"]
+offset_right = 120.0
+offset_bottom = 31.0
+
+[node name="decrease" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+offset_right = 30.0
+offset_bottom = 31.0
+text = "  -  "
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+offset_left = 34.0
+offset_top = 2.0
+offset_right = 82.0
+offset_bottom = 28.0
+text = "Speed"
+
+[node name="increase" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+offset_left = 86.0
+offset_right = 120.0
+offset_bottom = 31.0
+text = "  +  "
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer/decrease" to="." method="_on_decrease_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer/increase" to="." method="_on_increase_pressed"]

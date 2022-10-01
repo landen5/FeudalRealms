@@ -1,8 +1,13 @@
+MarginContainer
+Button
+Label
+HBoxContainer
+VBoxContainer
+CanvasLayer
+Control
 Camera2D
 Node2D
 Node
-Label
-Control
 CollisionShape2D
 Area2D
 Sprite2D
