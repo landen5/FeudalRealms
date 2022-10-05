@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cvdeffc1qe4dq"]
+[gd_scene load_steps=26 format=3 uid="uid://cvdeffc1qe4dq"]
 
 [ext_resource type="Script" path="res://Game.gd" id="1_gqxjx"]
 [ext_resource type="Texture2D" uid="uid://drwmbvj1qcmdu" path="res://map/map.jpg" id="1_h7jps"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cm33smdunnxm" path="res://map/grass_light.png" id="3_4b3ju"]
 [ext_resource type="Script" path="res://SettlementManager.gd" id="3_4q5ic"]
 [ext_resource type="PackedScene" uid="uid://cryufy5apy5tf" path="res://settlement.tscn" id="3_iv5kf"]
+[ext_resource type="Texture2D" uid="uid://bfe8r4vch05ax" path="res://map/water.png" id="3_ko70l"]
 [ext_resource type="Texture2D" uid="uid://bfg8qh2u7doi1" path="res://map/grass.png" id="4_ojkhd"]
 [ext_resource type="Texture2D" uid="uid://c6nnd646bcftl" path="res://map/grass_dark.png" id="5_l6fay"]
 [ext_resource type="Texture2D" uid="uid://tong440n0sle" path="res://clouds.png" id="5_tp5m8"]
@@ -15,6 +16,11 @@
 [ext_resource type="PackedScene" uid="uid://c53phsmy6v37r" path="res://gui.tscn" id="7_he8af"]
 [ext_resource type="Script" path="res://TileMap.gd" id="8_j0hru"]
 [ext_resource type="Texture2D" uid="uid://df8j4youkhuue" path="res://map/New Piskel.png" id="9_4k3bq"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2024u"]
+texture = ExtResource("3_ko70l")
+texture_region_size = Vector2i(4, 4)
+0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_itg1g"]
 resource_name = "sand"
@@ -59,13 +65,14 @@ texture_region_size = Vector2i(4, 4)
 
 [sub_resource type="TileSet" id="TileSet_rk44q"]
 tile_size = Vector2i(4, 4)
-sources/0 = SubResource("TileSetAtlasSource_itg1g")
-sources/1 = SubResource("TileSetAtlasSource_k3nao")
-sources/2 = SubResource("TileSetAtlasSource_s4joe")
-sources/3 = SubResource("TileSetAtlasSource_qoms6")
-sources/4 = SubResource("TileSetAtlasSource_khhkb")
-sources/5 = SubResource("TileSetAtlasSource_nvjxg")
-sources/6 = SubResource("TileSetAtlasSource_rdiyf")
+sources/7 = SubResource("TileSetAtlasSource_rdiyf")
+sources/6 = SubResource("TileSetAtlasSource_nvjxg")
+sources/5 = SubResource("TileSetAtlasSource_khhkb")
+sources/4 = SubResource("TileSetAtlasSource_qoms6")
+sources/3 = SubResource("TileSetAtlasSource_s4joe")
+sources/2 = SubResource("TileSetAtlasSource_k3nao")
+sources/1 = SubResource("TileSetAtlasSource_itg1g")
+sources/0 = SubResource("TileSetAtlasSource_2024u")
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_gqxjx")
