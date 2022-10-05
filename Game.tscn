@@ -1,18 +1,83 @@
-[gd_scene load_steps=8 format=3 uid="uid://cvdeffc1qe4dq"]
+[gd_scene load_steps=24 format=3 uid="uid://cvdeffc1qe4dq"]
 
 [ext_resource type="Script" path="res://Game.gd" id="1_gqxjx"]
 [ext_resource type="Texture2D" uid="uid://drwmbvj1qcmdu" path="res://map/map.jpg" id="1_h7jps"]
+[ext_resource type="Texture2D" uid="uid://bnxl18a8uyc7a" path="res://map/sand.png" id="2_150j5"]
 [ext_resource type="PackedScene" uid="uid://cj5u4i053irty" path="res://player.tscn" id="2_adg2c"]
+[ext_resource type="Texture2D" uid="uid://cm33smdunnxm" path="res://map/grass_light.png" id="3_4b3ju"]
 [ext_resource type="Script" path="res://SettlementManager.gd" id="3_4q5ic"]
 [ext_resource type="PackedScene" uid="uid://cryufy5apy5tf" path="res://settlement.tscn" id="3_iv5kf"]
+[ext_resource type="Texture2D" uid="uid://bfg8qh2u7doi1" path="res://map/grass.png" id="4_ojkhd"]
+[ext_resource type="Texture2D" uid="uid://c6nnd646bcftl" path="res://map/grass_dark.png" id="5_l6fay"]
 [ext_resource type="Texture2D" uid="uid://tong440n0sle" path="res://clouds.png" id="5_tp5m8"]
+[ext_resource type="Texture2D" uid="uid://bjmbdauc7w7rm" path="res://map/stone.png" id="6_ocrwn"]
+[ext_resource type="Texture2D" uid="uid://tq0dcuo0i4rx" path="res://map/snow.png" id="7_fbrgh"]
 [ext_resource type="PackedScene" uid="uid://c53phsmy6v37r" path="res://gui.tscn" id="7_he8af"]
+[ext_resource type="Script" path="res://TileMap.gd" id="8_j0hru"]
+[ext_resource type="Texture2D" uid="uid://df8j4youkhuue" path="res://map/New Piskel.png" id="9_4k3bq"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_itg1g"]
+resource_name = "sand"
+texture = ExtResource("2_150j5")
+texture_region_size = Vector2i(4, 4)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k3nao"]
+resource_name = "grass_light"
+texture = ExtResource("3_4b3ju")
+texture_region_size = Vector2i(4, 4)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s4joe"]
+resource_name = "grass"
+texture = ExtResource("4_ojkhd")
+texture_region_size = Vector2i(4, 4)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qoms6"]
+texture = ExtResource("5_l6fay")
+texture_region_size = Vector2i(4, 4)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_khhkb"]
+texture = ExtResource("6_ocrwn")
+texture_region_size = Vector2i(4, 4)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nvjxg"]
+texture = ExtResource("7_fbrgh")
+texture_region_size = Vector2i(4, 4)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rdiyf"]
+texture = ExtResource("9_4k3bq")
+texture_region_size = Vector2i(4, 4)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_rk44q"]
+tile_size = Vector2i(4, 4)
+sources/0 = SubResource("TileSetAtlasSource_itg1g")
+sources/1 = SubResource("TileSetAtlasSource_k3nao")
+sources/2 = SubResource("TileSetAtlasSource_s4joe")
+sources/3 = SubResource("TileSetAtlasSource_qoms6")
+sources/4 = SubResource("TileSetAtlasSource_khhkb")
+sources/5 = SubResource("TileSetAtlasSource_nvjxg")
+sources/6 = SubResource("TileSetAtlasSource_rdiyf")
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_gqxjx")
 
 [node name="Map" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("1_h7jps")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_rk44q")
+format = 2
+script = ExtResource("8_j0hru")
 
 [node name="Player" parent="." instance=ExtResource("2_adg2c")]
 
@@ -20,14 +85,17 @@ texture = ExtResource("1_h7jps")
 script = ExtResource("3_4q5ic")
 
 [node name="Settlement1" parent="SettlementManager" instance=ExtResource("3_iv5kf")]
+visible = false
 position = Vector2(-349, -390)
 scale = Vector2(8, 8)
 
 [node name="Settlement2" parent="SettlementManager" instance=ExtResource("3_iv5kf")]
+visible = false
 position = Vector2(-276, 190)
 scale = Vector2(15, 15)
 
 [node name="Settlement3" parent="SettlementManager" instance=ExtResource("3_iv5kf")]
+visible = false
 position = Vector2(779, 63)
 scale = Vector2(6, 6)
 
@@ -71,6 +139,3 @@ scale = Vector2(0.271, 0.271)
 texture = ExtResource("5_tp5m8")
 
 [node name="GUI" parent="." instance=ExtResource("7_he8af")]
-
-[connection signal="slowDown" from="GUI" to="." method="_on_gui_slow_down"]
-[connection signal="speedUp" from="GUI" to="." method="_on_gui_speed_up"]

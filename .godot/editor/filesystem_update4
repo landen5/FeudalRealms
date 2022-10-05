@@ -1,7 +1,4 @@
 res://Game.tscn
-res://player.tscn
-res://settlement.gd
-res://SettlementManager.gd
-res://Game.gd
 res://gui.tscn
-res://gui.gd
+res://player.tscn
+res://TileMap.gd

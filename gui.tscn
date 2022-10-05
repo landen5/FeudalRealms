@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://gui.gd" id="1_nbgrg"]
 
 [node name="GUI" type="CanvasLayer"]
+layer = 2
 script = ExtResource("1_nbgrg")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
